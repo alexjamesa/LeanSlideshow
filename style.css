@@ -44,13 +44,13 @@ body{
 ---------------------*/
 
 ul{
-  width:300%;
+  width:300%; /* WHEN CHANGING SLIDES, CHANGE THIS: 100 x # of slides */
   position:relative;
   left:0; /* JavaScript animates this property */
 }
 li{
   display:inline-block;
-  width:33.333%;
+  width:33.333%; /* WHEN CHANGING SLIDES, CHANGE THIS: 100 / # of slides (round down) */
   background-color: #444;
 }
 li p{
@@ -86,11 +86,11 @@ li p{
 .image_inner_wrapper {
   display: inline-block; 
   max-width: 100%;       
-  width:489px; /* Specific to default image */
+  width:489px; /* WHEN CHANGING IMAGE, CHANGE THIS: image width */
   position: relative;    
 }
 .image_inner_wrapper::after {
-  padding-top: 71.984%; /* Specific to default image: =width/height */
+  padding-top: 71.984%; /* WHEN CHANGING IMAGE, CHANGE THIS: image height/width */
   display: block;
   content: '';
 }
