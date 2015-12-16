@@ -1,0 +1,103 @@
+/*  Clear default styles */
+html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,label,legend,p,blockquote,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}body{line-height:1;color:black;background:white;}:focus{outline:0;}table{border-collapse:collapse;border-spacing:0;}caption,th,td{text-align:left;font-weight:normal;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul{list-style:none;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}blockquote:before,blockquote:after,q:before,q:after{content:"";}blockquote,q{quotes:"" "";}abbr,acronym{border:0;}
+
+
+/*-------------------
+-- Slideshow setup --
+-------------------*/
+
+body{
+  background-color: #000;
+  color:#FFF;
+}
+.slideshow_container{
+  width:80%;
+  margin:0 auto;
+  background: #222;
+}
+.slideshow{
+  width:80%;
+  display:inline-block;
+  overflow: hidden;
+}
+.slideshow_nav{
+  width:10%;
+  display: inline-block;
+  vertical-align:top;
+  margin-top:9%; /* Places the nav. buttons about halfway down image (specific to sample image) */
+}
+@media (max-width:600px){ /* Slideshow converts to single column below 600px */
+  .slideshow_nav{
+    margin-top:18%; /* Places the nav. buttons about halfway down image (specific to sample image) */
+  }
+}
+.slideshow_nav #prev{
+  float:left;
+}
+.slideshow_nav #next{
+  float:right;
+}
+
+
+/*---------------------
+-- List setup & text --
+---------------------*/
+
+ul{
+  width:300%;
+  position:relative;
+  left:0; /* JavaScript animates this property */
+}
+li{
+  display:inline-block;
+  width:33.333%;
+  background-color: #444;
+}
+li p{
+  width:48%;
+  margin-left:2%;
+  display:inline-block;
+  vertical-align:top;
+}
+@media (max-width:600px){ /* Slideshow converts to single column below 600px */
+  li p{
+    width:100%;
+    margin-left: 0;
+  }
+} 
+
+
+/*-------------------
+-- Scaleable image --
+-------------------*/
+
+.image_outer_wrapper{
+  display: inline-block;
+  vertical-align:top;
+  width:48%;
+  margin-right:2%;
+}
+@media (max-width:600px){ /* Slideshow converts to single column below 600px */
+  .image_outer_wrapper{
+    width:100%;
+    margin-right:0;
+  }
+}
+.image_inner_wrapper {
+  display: inline-block; 
+  max-width: 100%;       
+  width:489px; /* Specific to default image */
+  position: relative;    
+}
+.image_inner_wrapper::after {
+  padding-top: 71.984%; /* Specific to default image: =width/height */
+  display: block;
+  content: '';
+}
+.image_content {
+  position: absolute;
+  top: 0; bottom: 0; right: 0; left: 0;  
+  background-image:url('images/Devices.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+}
