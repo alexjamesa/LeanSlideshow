@@ -18,18 +18,15 @@ $(document).ready(function () {
     navigationButton.click(function (e) {
         if (slideDeck.is(':animated')) {
             return false;
+        }else if (e.target.id == previousButtonID) {
+            moveDeck(-1);
+            animateToSlide(true);     
+        }else if (e.target.id == nextButtonID) {
+            moveDeck(+1);
+            animateToSlide(true);     
+        }else{
+           return false;
         }
-        if (e.target.id == previousButtonID) {
-            slideDeck.stop().animate({
-                'left': moveDeck(-1)+'%'
-            }, slideTime);
-        }
-        if (e.target.id == nextButtonID) {
-            slideDeck.stop().animate({
-                'left': moveDeck(+1)+'%'
-            },slideTime);
-        }         
-        return false;
     });
 
     // moveDeck returns the new left position of the deck: 0% for first slide, -100% for second, etc.
@@ -43,6 +40,20 @@ $(document).ready(function () {
         }
         return deckPosition * -100;
     }
+
+    function animateToSlide(animate){
+        var slideWidth=slideDeck.width()/numberOfSlides;
+        var leftValue=moveDeck(0)/100*slideWidth+'px';
+        if (animate){
+            slideDeck.stop().animate({'left': leftValue}, slideTime);
+        }else{
+            slideDeck.stop().css({'left': leftValue}, slideTime);
+        }
+    }
+
+    $(window).on('resize', function(){
+        animateToSlide(false);
+    });
 
     // Pause slideshow if user mouseovers the slideshow
     slideshowContainer.mouseenter(function () {
